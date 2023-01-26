@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Alex Draym & Scott James - Terminal (Ataman Live Remix).mp3-cf5a70e35fb1415a46d1c0ec776dd68b.mp3str"
+
+[deps]
+
+source_file="res://Music/Alex Draym & Scott James - Terminal (Ataman Live Remix).mp3"
+dest_files=[ "res://.import/Alex Draym & Scott James - Terminal (Ataman Live Remix).mp3-cf5a70e35fb1415a46d1c0ec776dd68b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

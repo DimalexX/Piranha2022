@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Yakov - Toxic.mp3-d193124c5e2fd92a26e9d7de511e666d.mp3str"
+
+[deps]
+
+source_file="res://Music/Yakov - Toxic.mp3"
+dest_files=[ "res://.import/Yakov - Toxic.mp3-d193124c5e2fd92a26e9d7de511e666d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

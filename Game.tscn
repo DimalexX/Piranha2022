@@ -1,0 +1,158 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Spaceship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game.gd" type="Script" id=3]
+[ext_resource path="res://SplashScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/Bomb02.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/Bomb03.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Img/kosmicheskii-fon.jpg" type="Texture" id=8]
+[ext_resource path="res://Sounds/GameOver01.mp3" type="AudioStream" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "BOOOOM!!!!"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.235294 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.392157, 0.392157, 0.392157, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color( 0.392157, 0.392157, 0.392157, 1 )
+show_behind_parent = true
+margin_left = -80.0
+margin_top = -80.0
+margin_right = 1840.0
+margin_bottom = 1120.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="P01" type="Position2D" parent="."]
+position = Vector2( 683, 150 )
+
+[node name="P02" type="Position2D" parent="."]
+position = Vector2( 250, 384 )
+
+[node name="P03" type="Position2D" parent="."]
+position = Vector2( 1116, 384 )
+
+[node name="UI" parent="." instance=ExtResource( 2 )]
+
+[node name="SplashScreen" parent="." instance=ExtResource( 4 )]
+pause_mode = 2
+
+[node name="Spaceship" parent="." instance=ExtResource( 1 )]
+pause_mode = 2
+position = Vector2( 1005, 561 )
+rotation = 0.523599
+
+[node name="BoomAnimator" type="AnimationPlayer" parent="."]
+anims/BOOOOM!!!! = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="BombPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+pitch_scale = 1.4
+
+[node name="AsteroidBombPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -15.0
+pitch_scale = 1.98
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+volume_db = -20.0
+
+[node name="GameOverPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -5.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_left = -31.0
+margin_top = -25.0
+margin_right = 1393.0
+margin_bottom = 794.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="pressed" from="UI/Shop/VBoxContainer/GridContainer/HPplus" to="." method="_on_HPplus_pressed"]
+[connection signal="pressed" from="UI/Shop/VBoxContainer/GridContainer/MaxHPplus" to="." method="_on_MaxHPplus_pressed"]
+[connection signal="pressed" from="UI/Shop/VBoxContainer/GridContainer/SpeedPlus" to="." method="_on_SpeedPlus_pressed"]
+[connection signal="pressed" from="UI/Shop/VBoxContainer/GridContainer/RotationPLus" to="." method="_on_RotationPLus_pressed"]
+[connection signal="pressed" from="UI/Shop/VBoxContainer/GridContainer/ShotSpeedPlus" to="." method="_on_ShotSpeedPlus_pressed"]
+[connection signal="pressed" from="UI/Shop/VBoxContainer/GridContainer/ShotPlus" to="." method="_on_ShotPlus_pressed"]
+[connection signal="pressed" from="UI/Shop/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="finished" from="AsteroidBombPlayer" to="." method="_on_AsteroidBombPlayer_finished"]
+[connection signal="finished" from="MusicPlayer" to="." method="_on_MusicPlayer_finished"]
+
+[editable path="UI"]
+[editable path="UI/Shop"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bomb04.mp3-53c8ef84bd0d0e055d5233ac7cd89d90.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Bomb04.mp3"
+dest_files=[ "res://.import/Bomb04.mp3-53c8ef84bd0d0e055d5233ac7cd89d90.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

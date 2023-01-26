@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PPK_-_Voskreshenie_20718.mp3-601b87918ddd3c91cebd3670bc833b50.mp3str"
+
+[deps]
+
+source_file="res://Music/PPK_-_Voskreshenie_20718.mp3"
+dest_files=[ "res://.import/PPK_-_Voskreshenie_20718.mp3-601b87918ddd3c91cebd3670bc833b50.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

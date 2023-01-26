@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Piranha 01.mp3-cf335f1078e87a75b4ae63de962b68ba.mp3str"
+
+[deps]
+
+source_file="res://Music/Piranha 01.mp3"
+dest_files=[ "res://.import/Piranha 01.mp3-cf335f1078e87a75b4ae63de962b68ba.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

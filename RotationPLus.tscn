@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://HPplus.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RotationPLus.gd" type="Script" id=2]
+
+[node name="RotationPLus" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="credits" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+text = "7000"
+
+[node name="Name" parent="MarginContainer/VBoxContainer" index="1"]
+text = "Rotate +500"
+
+[node name="Level" parent="MarginContainer/VBoxContainer" index="2"]
+text = "2000/5000"
